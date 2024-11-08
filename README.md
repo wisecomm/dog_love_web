@@ -7,7 +7,7 @@ A new Flutter project.
 https://velog.io/@hetarho/Fluttergithub-action%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-gh-page-%EB%A1%9C-web-%ED%98%B8%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0
 
 
-- flutter web 개발 샛팅
+- flutter web 개발 세팅
 flutter config --list
 flutter config --enable-web       
 
@@ -16,11 +16,11 @@ Workflow permissions
 Read and write permissions -- save 
 
 Pages --> Branch 
-Gh-pages, root로 맞툼
+Gh-pages, root로 세팅
 
-GITHUB_TOKEN 토큰 생성 후 샛팅
+GITHUB_TOKEN 토큰 생성 후 세팅
 
--- flutter-web_eploy.yml ( index.html 수정 필요없음)
+-- flutter_web_deploy.yml ( index.html 수정 필요없음)
 name: Deploy Flutter Web App to GitHub Pages
 
 on:
