@@ -18,6 +18,8 @@ Read and write permissions -- save
 Pages --> Branch 
 Gh-pages, root로 맞툼
 
+GITHUB_TOKEN 토큰 생성 후 샛팅
+
 -- flutter-web_eploy.yml ( index.html 수정 필요없음)
 name: Deploy Flutter Web App to GitHub Pages
 
