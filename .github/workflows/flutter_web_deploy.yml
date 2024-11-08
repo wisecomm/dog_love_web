@@ -15,7 +15,7 @@ jobs:
     - name: Setup Flutter
       uses: subosito/flutter-action@v2.12.0
       with:
-        flutter-version: '3.13.0' # 사용하는 Flutter 버전으로 변경
+        flutter-version: '3.24.4' # 사용하는 Flutter 버전으로 변경
 
     - name: Build Web
       run: flutter build web --release
@@ -25,4 +25,3 @@ jobs:
       with:
         github_token: ${{ secrets.MY_SECRET_KEY_NAME }} # repository에서 사용할 시크릿 키 이름
         publish_dir: ./build/web
-        
