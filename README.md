@@ -2,16 +2,52 @@
 
 A new Flutter project.
 
-## Getting Started
+## 깃 허브 우베 액션 디플로이 
+- 참조 사이트 
+https://velog.io/@hetarho/Fluttergithub-action%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-gh-page-%EB%A1%9C-web-%ED%98%B8%EC%8A%A4%ED%8C%85%ED%95%98%EA%B8%B0
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+- flutter web 개발 샛팅
+flutter config --list
+flutter config --enable-web       
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Workflow permissions
+Read and write permissions -- save 
+
+Pages --> Branch 
+Gh-pages, root로 맞툼
+
+-- flutter-web_eploy.yml ( index.html 수정 필요없음)
+name: Deploy Flutter Web App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 또는 Flutter 앱의 소스 코드가 있는 브랜치 이름
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4.1.1
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2.12.0
+      with:
+        flutter-version: '3.24.4' # 사용하는 Flutter 버전으로 변경
+
+    - name: Build Web
+      run: flutter build web --release --web-renderer html --base-href /dog_love_web/
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3.9.3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }} # repository에서 사용할 시크릿 키 이름
+        publish_dir: ./build/web
+
+
+
+
 # dog_love_web
